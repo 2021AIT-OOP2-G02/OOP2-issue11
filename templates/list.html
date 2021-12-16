@@ -29,9 +29,7 @@
 		{% for file in files %}
 		<div class="col">
 			<img src="{{files[file]}}" class="imgs">
-			<div class="card-body">
-				<p class="card-text">{{file}}</p>
-			</div>
+			<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">{{file}}</div>
 		</div>
 		{% endfor %}
 		<style>
