@@ -29,10 +29,16 @@ def upload_file():
     	return render_template('uploads.html')
 
 
-@app.route('/img_list')
-def list():
-    files = upload.list()
-    return render_template('tmp.html',title = 'title',files=files)
+@app.route('/img_list_canny')
+def list_canny():
+    files = upload.list_canny()
+    return render_template('tmp.html',title='title',files=files)
+
+
+@app.route('/img_list_gray')
+def list_gray():
+    files = upload.list_gray()
+    return render_template('tmp.html',title='title',files=files)
 
 
 if __name__ == '__main__':
