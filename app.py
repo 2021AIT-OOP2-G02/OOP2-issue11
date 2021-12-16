@@ -27,3 +27,13 @@ def upload_file():
     else:
     	#GETでアクセスされた時、uploadsを表示
     	return render_template('uploads.html')
+
+
+@app.route('/img_list')
+def list():
+    files = upload.list()
+    return render_template('tmp.html',title = 'title',files=files)
+
+
+if __name__ == '__main__':
+    app.run()

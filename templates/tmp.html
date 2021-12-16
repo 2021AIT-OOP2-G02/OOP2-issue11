@@ -4,11 +4,11 @@
   	<meta charset="utf8"/>
   </head>
   <body>
-  	<h1>アップロードフォーム</h1>
+  	<h1>{{title}}</h1>
   	<form method="POST" action="/uploads" enctype="multipart/form-data">
-  	  <input placeholder="お名前" name="username" type="text"/>
-  	  <input placeholder="データ" name="the_file" type="file"/>
-  	  <input value="送信" type="submit"/>
+  		{% for file in files %}
+		<img src="{{file}}">
+		{% endfor %}
   	</form>
   </body>
 </html>
