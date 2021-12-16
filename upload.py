@@ -12,7 +12,11 @@ def  list_gray():
     return (files)
 
 
-# if __name__ == "__main__":
-#     list_canny()
+def  list_mozaiku():
+    files = glob.glob("static/img/mozaiku_img/*.jpg")
+    return (files)
 
-    
+def  list_upload():
+    files = glob.glob("static/img/upload_img/*.jpg")
+    return (files)
+
