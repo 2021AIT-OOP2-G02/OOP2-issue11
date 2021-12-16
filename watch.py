@@ -7,23 +7,17 @@ from watchdog.events import LoggingEventHandler
 from watchdog.events import FileSystemEventHandler
 from cv_lib import main
 
-
-if __name__ == "__main__":
-    #ロギングの設定
-    logging.basicConfig(level=logging.INFO,
-                        format='%(asctime)s - %(message)s',
-                        datefmt='%Y-%m-%d %H:%M:%S')
-    #イベントハンドラ
+#イベントハンドラ
 class ChangeHandler(FileSystemEventHandler):
 
     #ファイルやフォルダが作成された場合
     def on_created(self, event):
         filepath = event.src_path
         filename = os.path.basename(filepath)
-        main.start_opencv()
+        main.start_opencv() #main.py 呼び出し
         print('%sを作成しました。' % filename)
 
-    #ファイルやフォルダが更新された場合
+    '''#ファイルやフォルダが更新された場合
     def on_modified(self, event):
         filepath = event.src_path
         filename = os.path.basename(filepath)
@@ -42,21 +36,23 @@ class ChangeHandler(FileSystemEventHandler):
         filepath = event.src_path
         filename = os.path.basename(filepath)
         main.start_opencv()
-        print('%sを削除しました。' % filename)
+        print('%sを削除しました。' % filename)'''
+
+if __name__ == "__main__":
+    #ロギングの設定
+    '''logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s - %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S')'''
     
     #path = sys.argv[1] if len(sys.argv) > 1 else '.'    #監視対象のpathを設定
 
     path = "./img/upload_img"                            #監視対象のpathを設定
 
-    event_handler = LoggingEventHandler()                #イベントハンドラ生成
-    event_handler = os.ChangeHandler()
+    #event_handler = LoggingEventHandler()                #イベントハンドラ生成
+    event_handler = ChangeHandler()
 
     observer = Observer()       #監視オブジェクト生成
-    observer.schedule(          #監視設定
-        event_handler,
-        path,
-        recursive=True
-        )
+    observer.schedule(event_handler,path,recursive=True) #監視設定
     print("hello")              #動作確認
 
     observer.start()            #監視開始
