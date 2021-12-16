@@ -6,6 +6,8 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+img_dict = []
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -31,25 +33,32 @@ def upload_file():
 
 @app.route('/img_list_upload')
 def list_upload():
-    files = upload.list_upload()
-    return render_template('list.html',title='アップロードリスト',files=files)
-
-
-@app.route('/img_list_canny')
-def list_canny():
-    files = upload.list_canny()
-    return render_template('list.html',title='輪郭抽出',files=files)
+    img_dict = upload.list_upload()
+    return render_template('list.html',title='アップロードリスト',files=img_dict)
 
 
 @app.route('/img_list_gray')
 def list_gray():
-    files = upload.list_gray()
-    return render_template('list.html',title='グレースケール',files=files)
+    img_dict = upload.list_gray()
+    return render_template('list.html',title='グレースケール',files=img_dict)
+
+
+@app.route('/img_list_binary')
+def list_binary():
+    img_dict = upload.list_binary()
+    return render_template('list.html',title='二値化',files=img_dict)
+
+
+@app.route('/img_list_canny')
+def list_canny():
+    img_dict = upload.list_canny()
+    return render_template('list.html',title='輪郭抽出',files=img_dict)
+
 
 @app.route('/img_list_mozaiku')
 def list_mozaiku():
-    files = upload.list_mozaiku()
-    return render_template('list.html',title='モザイク',files=files)
+    img_dict = upload.list_mozaiku()
+    return render_template('list.html',title='モザイク',files=img_dict)
 
 
 if __name__ == '__main__':
