@@ -15,9 +15,9 @@ cv2.imwrite('img/gray_img/gray.jpg', img_gray)
 
 
 #グレースケールされた画像を二値化
-ret2, img_otsu = cv2.threshold(img_gray, 0, 255, cv2.THRESH_OTSU)
-cv2.imwrite('img/threshold_img/otsu.jpg', img_otsu)
+ret2, img_threshold = cv2.threshold(img_gray, 0, 255, cv2.THRESH_OTSU)
+cv2.imwrite('img/threshold_img/otsu.jpg', img_threshold)
 
 #確認用出力
-#cv2.imshow('color', img_otsu)
+#cv2.imshow('color', img_threshold)
 #cv2.waitKey(0)
