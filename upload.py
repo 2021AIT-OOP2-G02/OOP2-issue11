@@ -4,6 +4,7 @@ import os, glob
 img_dict = {}
 
 def list_canny():
+    img_dict = {}
     files = glob.glob("static/img/canny_img/*.jpg")
     # print(type(files))
     # print(files)
@@ -18,6 +19,7 @@ def list_canny():
 
 
 def  list_gray():
+    img_dict = {}
     files = glob.glob("static/img/gray_img/*.jpg")
 
     for file in files:
@@ -27,6 +29,7 @@ def  list_gray():
 
 
 def  list_binary():
+    img_dict = {}
     files = glob.glob("static/img/binary_img/*.jpg")
 
     for file in files:
@@ -36,6 +39,7 @@ def  list_binary():
 
 
 def  list_mozaiku():
+    img_dict = {}
     files = glob.glob("static/img/mozaiku_img/*.jpg")
 
     for file in files:
@@ -44,7 +48,8 @@ def  list_mozaiku():
     return (img_dict)
 
 def  list_upload():
-    files = glob.glob("static/img/upload_img/*.jpg")
+    img_dict = {}
+    files = glob.glob("static/img/upload_img/*.png")
 
     for file in files:
         img_dict[os.path.basename(file)] = file
