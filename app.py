@@ -9,7 +9,7 @@ from pathlib import Path
 app = Flask(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
-UPLOAD_FOLDER = BASE_DIR / "img" / "upload_img"
+UPLOAD_FOLDER = BASE_DIR / "static" / "img" / "upload_img"
 
 img_dict = []
 
