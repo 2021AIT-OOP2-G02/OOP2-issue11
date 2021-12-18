@@ -37,7 +37,7 @@ def make_dict(name):
     img_dict = {}
 
     # ３種類の拡張子を持つファイルを全部filesに追加していく
-    for ext in ('*.jpeg', '*.png', '*.jpg'):
+    for ext in ('*.jpeg', '*.png', '*.jpg','*.JPEG','*.PNG','*.JPG'):
         path = name + ext
         files.extend(glob.glob(path))
 
