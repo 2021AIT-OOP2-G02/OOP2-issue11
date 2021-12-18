@@ -17,7 +17,7 @@ def gray(path):
 
     #グレースケールされた画像を二値化
     ret2, img_threshold = cv2.threshold(img_gray, 0, 255, cv2.THRESH_OTSU)
-    cv2.imwrite('./static/img/gray_img/bin_'+os.path.basename(path), img_threshold)
+    cv2.imwrite('./static/img/binary_img/bin_'+os.path.basename(path), img_threshold)
 
     #確認用出力
     #cv2.imshow('color', img_threshold)

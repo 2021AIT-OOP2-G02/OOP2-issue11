@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-import cv2
+import cv2,os
 
 def canny(path):
         
@@ -13,4 +13,4 @@ def canny(path):
     dst = cv2.Canny(gray, 100, 200)
 
     # 結果を出力
-    cv2.imwrite('../static/img/canny_img/contour_'+path, dst)
+    cv2.imwrite('./static/img/canny_img/contour_'+os.path.basename(path), dst)
