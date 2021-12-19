@@ -18,13 +18,13 @@ def index():
     return render_template("index.html")
 
 
+
 #POSTの処理
 @app.route('/up/', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
         
         f = request.files["the_file"]
-        print(f)
 
         #任意の階層を相対パスで指定
         f.save(UPLOAD_FOLDER / secure_filename(f.filename))
@@ -60,6 +60,12 @@ def list_canny():
 def list_mozaiku():
     img_dict = upload.list_mozaiku()
     return render_template('list.html',title='モザイク',files=img_dict)
+
+
+@app.route('/img_list_rectangle')
+def list_rectangle():
+    img_dict = upload.list_rectangle()
+    return render_template('list.html',title='顔認識',files=img_dict)
 
 
 if __name__ == '__main__':

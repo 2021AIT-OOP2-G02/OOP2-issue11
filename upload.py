@@ -23,6 +23,12 @@ def  list_mozaiku():
     name = "static/img/mozaiku_img/"
 
     return (make_dict(name))
+
+
+def  list_rectangle():
+    name = "static/img/rectangle_img/"
+
+    return (make_dict(name))
     
 
 def  list_upload():

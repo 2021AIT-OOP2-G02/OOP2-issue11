@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 # ---- import ----
 import cv2  # OpenCV（python版）のインポート
+import os
 #rectangleメソッドは，顔を四角で囲うフィルター処理をして，画像を書き込み(rectangle_face.jpgという名前の画像で出力)
 #mozaikuメソッドは，顔をモザイク処理して画像書き込み(mosaic_face.jpgという名前の画像で出力)
 
-def rectangle():
+def rectangle(path):
     # 入力画像の読み込み
-    img = cv2.imread('./static/img/upload_img/OneDirect.jpg')
+    img = cv2.imread(path)
 
     # カスケード型識別器の読み込み
     cascade = cv2.CascadeClassifier(r'./cv_lib/xml/haarcascade_frontalface_default.xml')
@@ -23,12 +24,12 @@ def rectangle():
         cv2.rectangle(img, (x, y), (x + w, y+h), (0,0,300), 4)
 
     # 結果を出力
-    cv2.imwrite("./static//img/mozaiku_img/rectangle_face.jpg",img)
+    cv2.imwrite("./static/img/rectangle_img/rect_"+os.path.basename(path),img)
 
-def mozaiku():
+def mozaiku(path):
     import cv2
 
-    src = cv2.imread("static/img/upload_img/OneDirect.jpg")
+    src = cv2.imread(path)
 
     def mosaic(src, ratio=0.1):
         small = cv2.resize(src, None, fx=ratio, fy=ratio, interpolation=cv2.INTER_NEAREST)
@@ -50,7 +51,7 @@ def mozaiku():
     for x, y, w, h in faces:
         dst_face = mosaic_area(dst_face, x, y, w, h)
     print('検出された人数: {}'.format(len(faces)))
-    cv2.imwrite("./static/img/mozaiku_img/mosaic_face.jpg", dst_face)
+    cv2.imwrite("./static/img/mozaiku_img/mosaic_"+os.path.basename(path), dst_face)
 
 if __name__ == "__main__":
     rectangle()
