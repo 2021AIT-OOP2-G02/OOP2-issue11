@@ -14,7 +14,7 @@ class ChangeHandler(FileSystemEventHandler):
     def on_created(self, event):
         filepath = event.src_path
         filename = os.path.basename(filepath)
-        main.start_opencv() #main.py 呼び出し
+        main.start_opencv(filepath) #main.py 呼び出し
         print('%sを作成しました。' % filename)
 
     '''#ファイルやフォルダが更新された場合
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     
     #path = sys.argv[1] if len(sys.argv) > 1 else '.'    #監視対象のpathを設定
 
-    path = "./img/upload_img"                            #監視対象のpathを設定
+    path = "./static/img/upload_img"                            #監視対象のpathを設定
 
     #event_handler = LoggingEventHandler()                #イベントハンドラ生成
     event_handler = ChangeHandler()

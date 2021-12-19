@@ -18,13 +18,13 @@ def index():
     return render_template("index.html")
 
 
-
 #POSTの処理
 @app.route('/up/', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
         
         f = request.files["the_file"]
+        print(f)
 
         #任意の階層を相対パスで指定
         f.save(UPLOAD_FOLDER / secure_filename(f.filename))
