@@ -26,10 +26,16 @@ def upload_file():
         
         f = request.files["the_file"]
 
+        print(f.filename)
+
+        # ファイルが選択されていなかったら
+        if f.filename == "":
+            return render_template('index.html',flag=1)
+
         #任意の階層を相対パスで指定
         f.save(UPLOAD_FOLDER / secure_filename(f.filename))
         
-    return render_template('index.html')
+    return render_template('index.html',flag=0)
 
 
 @app.route('/img_list_upload')

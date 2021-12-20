@@ -30,6 +30,11 @@
         <input placeholder="データ" name="the_file" type="file"/>
         <input value="送信" type="submit"/>
         </form>
+        {% if flag == 0 %}
+        <div id="message-container" class="alert alert-info mt-3" role="alert">アップロード＆画像処理完了</div>
+        {% elif flag == 1 %}
+        <div id="error-container" class="alert alert-danger mt-3" role="alert">画像を選択してください</div>
+        {% endif %}
     </div>
   </body>
 </html>
