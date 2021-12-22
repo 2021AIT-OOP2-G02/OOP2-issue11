@@ -13,7 +13,11 @@ class ChangeHandler(FileSystemEventHandler):
     #ファイルやフォルダが作成された場合
     def on_created(self, event):
         filepath = event.src_path
+        print('filepath : ',filepath)
+
         filename = os.path.basename(filepath)
+        print('filename : ',filename)
+
         main.start_opencv(filepath) #main.py 呼び出し
         print('%sを作成しました。' % filename)
 

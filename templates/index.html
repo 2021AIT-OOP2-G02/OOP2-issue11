@@ -17,9 +17,10 @@
                 <li class="nav-item"><a class="nav-link" href="/">ホーム</a></li>
                 <li class="nav-item"><a class="nav-link" href="/img_list_upload">アップロードリスト</a></li>
                 <li class="nav-item"><a class="nav-link" href="/img_list_gray">グレースケール</a></li>
-				<li class="nav-item"><a class="nav-link" href="/img_list_gray">二値化</a></li>
-				<li class="nav-item"><a class="nav-link" href="/img_list_canny">輪郭抽出</a></li>
-				<li class="nav-item"><a class="nav-link" href="/img_list_mozaiku">モザイク</a></li>
+                <li class="nav-item"><a class="nav-link" href="/img_list_gray">二値化</a></li>
+                <li class="nav-item"><a class="nav-link" href="/img_list_canny">輪郭抽出</a></li>
+                <li class="nav-item"><a class="nav-link" href="/img_list_rectangle">顔認識</a></li>
+                <li class="nav-item"><a class="nav-link" href="/img_list_mozaiku">モザイク</a></li>
             </ul>
         </div>
     </nav>
@@ -29,6 +30,11 @@
         <input placeholder="データ" name="the_file" type="file"/>
         <input value="送信" type="submit"/>
         </form>
+        {% if flag == 0 %}
+        <div id="message-container" class="alert alert-info mt-3" role="alert">アップロード＆画像処理完了</div>
+        {% elif flag == 1 %}
+        <div id="error-container" class="alert alert-danger mt-3" role="alert">画像を選択してください</div>
+        {% endif %}
     </div>
   </body>
 </html>

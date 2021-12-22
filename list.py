@@ -47,6 +47,17 @@ def  list_mozaiku():
 
     return (img_dict)
 
+
+def  list_rectangle():
+    img_dict = {}
+    files = glob.glob("static/img/rectangle_img/*.jpg")
+
+    for file in files:
+        img_dict[os.path.basename(file)] = file
+
+    return (img_dict)
+
+
 def  list_upload():
     img_dict = {}
     files = glob.glob("static/img/upload_img/*.png")
