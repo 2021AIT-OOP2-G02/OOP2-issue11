@@ -12,7 +12,22 @@
 | 高野　晃太     | K20127      | web 画像アップロード |
 | 丹羽　渚     | K20090      | web グレースケールと２値化 |
 
-## 2. pythonライブラリ
-opencv
-watchdog
-numpy
+## 2. Requirements
+| 言語/module | Version|
+| :------------| ---------: |
+| python | 3.8.3　|
+| Flask |  2.0.2　|
+| watchdog | 2.1.6　|
+| opencv-python | 4.5.4.58　|
+| Werkzeug | 2.0.2 |
+
+## 3. Usage 
+Webサーバの起動
+```sh
+$ python app.py
+```
+
+watchdogによるアップロードフォルダ監視プログラムの起動
+```sh
+$ python watch.py
+```
